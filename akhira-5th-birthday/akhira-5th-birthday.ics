@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Yarlagadda Invites//Akhira 5th Birthday//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:akhira-5th-birthday-20261205@yarlagadda-invites.vercel.app
+DTSTAMP:20261026T000000Z
+DTSTART:20261206T020000Z
+DTEND:20261206T040000Z
+SUMMARY:Akhira's 5th Birthday Party 🦄
+LOCATION:Hooray! Kids Indoor Play Center\, 2086 Newpark Mall Rd Ste 2109A\, Newark\, CA 94560
+DESCRIPTION:Unicorn birthday party! Park in front of AMC and enter through E
+ ntry 5 (2nd floor\, flat level to the play center).\nRSVP: https://yarlag
+ adda-invites.vercel.app/akhira-5th-birthday/
+URL:https://yarlagadda-invites.vercel.app/akhira-5th-birthday/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Akhira's birthday party tomorrow!
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
