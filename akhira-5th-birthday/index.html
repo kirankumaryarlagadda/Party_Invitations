@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Akhira Turns 5</title>
+<meta name="description" content="You're invited to Akhira's magical unicorn 5th birthday party at Hooray! Kids Indoor Play Center, Newark CA — Saturday, Dec 5, 2026, 6–8pm.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg1: #ffe3f3;
+    --bg2: #e6dcff;
+    --bg3: #d6f4ff;
+    --card: rgba(255, 255, 255, 0.86);
+    --ink: #4a2d6b;
+    --ink-soft: #7a5f99;
+    --pink: #ff6fb5;
+    --purple: #9b6bff;
+    --blue: #5ec8ff;
+    --gold: #ffc94d;
+    --mint: #6fe3c1;
+    --line: rgba(155, 107, 255, 0.22);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    font-family: "Fredoka", system-ui, sans-serif;
+    color: var(--ink);
+    background: linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 50%, var(--bg3) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* floating sparkles + stars */
+  .sky { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .sky span {
+    position: absolute; font-size: 18px; opacity: .75;
+    animation: drift 9s ease-in-out infinite;
+  }
+  @keyframes drift {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-22px) rotate(15deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sky span, .unicorn, .rainbow-text { animation: none !important; }
+  }
+
+  main {
+    position: relative; z-index: 1;
+    max-width: 640px; margin: 0 auto; padding: 32px 16px 48px;
+  }
+
+  .card {
+    background: var(--card);
+    backdrop-filter: blur(6px);
+    border-radius: 32px;
+    border: 3px solid #fff;
+    box-shadow: 0 20px 60px rgba(155, 107, 255, .25), 0 0 0 8px rgba(255, 255, 255, .35);
+    padding: 28px 24px 32px;
+    text-align: center;
+  }
+
+  .unicorn { width: 190px; height: auto; display: block; margin: -4px auto 0; animation: bob 4s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+  .kicker {
+    font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    font-size: 13px; color: var(--ink-soft); margin: 8px 0 4px;
+  }
+  h1 {
+    font-family: "Pacifico", cursive; font-weight: 400;
+    font-size: clamp(44px, 12vw, 68px); line-height: 1.15; margin: 4px 0 0;
+  }
+  .rainbow-text {
+    background: linear-gradient(90deg, var(--pink), var(--gold), var(--mint), var(--blue), var(--purple), var(--pink));
+    background-size: 300% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmer 8s linear infinite;
+  }
+  @keyframes shimmer { to { background-position: 300% 0; } }
+
+  .age {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    margin: 10px 0 6px; font-size: 22px; font-weight: 600;
+  }
+  .age .num {
+    font-family: "Pacifico", cursive; font-size: 54px; line-height: 1;
+    width: 84px; height: 84px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #fff; background: radial-gradient(circle at 30% 30%, #ffb3dc, var(--pink) 55%, var(--purple));
+    box-shadow: 0 8px 20px rgba(255, 111, 181, .45), inset 0 -4px 0 rgba(0,0,0,.08);
+    padding-bottom: 6px;
+  }
+  .tagline { font-size: 18px; color: var(--ink-soft); margin: 8px auto 22px; max-width: 34ch; }
+
+  .divider { height: 8px; border-radius: 8px; margin: 6px auto 22px; width: 70%;
+    background: linear-gradient(90deg, var(--pink), var(--gold), var(--mint), var(--blue), var(--purple)); opacity: .8; }
+
+  .details { display: grid; gap: 12px; text-align: left; }
+  .row {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: #fff; border: 2px solid var(--line); border-radius: 20px; padding: 14px 16px;
+  }
+  .row .icon {
+    flex: 0 0 44px; height: 44px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center; font-size: 22px;
+  }
+  .i-date { background: #ffe1f0; } .i-time { background: #efe6ff; } .i-place { background: #dff5ff; }
+  .row .label { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+  .row .value { font-size: 18px; font-weight: 600; line-height: 1.3; }
+  .row .sub { font-size: 15px; color: var(--ink-soft); line-height: 1.4; }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 22px 0 4px; }
+  .btn {
+    font: inherit; font-weight: 600; font-size: 16px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 18px; border-radius: 999px; text-decoration: none;
+    border: 2px solid transparent; transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { color: #fff; background: linear-gradient(90deg, var(--pink), var(--purple)); box-shadow: 0 8px 18px rgba(155,107,255,.35); }
+  .btn-ghost { color: var(--ink); background: #fff; border-color: var(--line); }
+
+  h2 {
+    font-family: "Pacifico", cursive; font-weight: 400; font-size: 28px;
+    margin: 30px 0 12px; color: var(--purple);
+  }
+  .directions { text-align: left; display: grid; gap: 12px; }
+  .opt { background: #fff; border-radius: 20px; padding: 16px; border: 2px solid var(--line); }
+  .opt.recommended { border-color: var(--pink); background: #fff7fb; }
+  .opt .tag {
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px; margin-bottom: 6px;
+  }
+  .opt.recommended .tag { background: var(--pink); color: #fff; }
+  .opt:not(.recommended) .tag { background: #efe6ff; color: var(--purple); }
+  .opt h3 { margin: 2px 0 4px; font-size: 18px; }
+  .opt p { margin: 0; font-size: 16px; line-height: 1.45; color: var(--ink-soft); }
+  .opt p strong { color: var(--ink); }
+
+  .map {
+    margin-top: 14px; border-radius: 20px; overflow: hidden; border: 3px solid #fff;
+    box-shadow: 0 8px 24px rgba(155,107,255,.2); background: #fff;
+  }
+  .map img { display: block; width: 100%; height: auto; }
+  .map figcaption { font-size: 14px; color: var(--ink-soft); padding: 8px 12px; }
+
+  .help { margin-top: 12px; font-size: 15px; color: var(--ink-soft); font-style: italic; }
+  .help a { color: var(--purple); font-weight: 600; }
+
+  .rsvp {
+    margin-top: 28px; padding: 18px; border-radius: 22px;
+    background: linear-gradient(135deg, #fff0f8, #f1eaff);
+    border: 2px dashed var(--pink);
+  }
+  .rsvp .big { font-family: "Pacifico", cursive; font-size: 26px; color: var(--pink); }
+  .rsvp p { margin: 6px 0 0; font-size: 16px; color: var(--ink-soft); }
+
+  #rsvp-form { display: grid; gap: 14px; margin-top: 16px; text-align: left; }
+  .field { display: grid; gap: 6px; }
+  .field > span { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .field em { font-style: normal; font-weight: 400; color: var(--ink-soft); }
+  .field input, .field textarea {
+    font: inherit; font-size: 16px; color: var(--ink);
+    padding: 12px 14px; border-radius: 14px; border: 2px solid var(--line); background: #fff;
+    width: 100%;
+  }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 4px rgba(155,107,255,.15); }
+  .field textarea { resize: vertical; }
+  .choice { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .choice legend { font-size: 14px; font-weight: 600; margin-bottom: 6px; padding: 0; }
+  .choice label { flex: 1 1 110px; }
+  .choice input { position: absolute; opacity: 0; pointer-events: none; }
+  .choice span {
+    display: block; text-align: center; cursor: pointer; font-weight: 600;
+    padding: 10px 8px; border-radius: 14px; background: #fff; border: 2px solid var(--line);
+  }
+  .choice input:checked + span { border-color: var(--pink); background: #ffe7f3; }
+  .choice input:focus-visible + span { box-shadow: 0 0 0 4px rgba(155,107,255,.25); }
+  .counts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .counts[hidden] { display: none; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .submit { justify-content: center; width: 100%; font-size: 17px; padding: 14px; }
+  .submit[disabled] { opacity: .6; cursor: wait; transform: none; }
+  .form-msg { margin: 0; min-height: 1.2em; font-size: 15px; text-align: center; color: #c0306f; }
+  .thanks { margin-top: 10px; }
+  .thanks p { margin: 6px 0 14px; }
+
+  footer { text-align: center; margin-top: 22px; font-size: 14px; color: var(--ink-soft); }
+
+  @media (max-width: 420px) {
+    .card { padding: 22px 16px 26px; border-radius: 26px; }
+    .unicorn { width: 160px; }
+    .row .value { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+  <div class="sky" aria-hidden="true" id="sky"></div>
+
+  <main>
+    <article class="card">
+      <!-- Unicorn -->
+      <svg class="unicorn" viewBox="0 0 220 220" role="img" aria-label="Smiling unicorn">
+        <defs>
+          <linearGradient id="horn" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#ffb84d"/><stop offset="1" stop-color="#ffe9a8"/>
+          </linearGradient>
+          <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f6efff"/>
+          </linearGradient>
+        </defs>
+        <!-- mane (back) -->
+        <circle cx="62" cy="70" r="22" fill="#ff8cc6"/>
+        <circle cx="50" cy="100" r="22" fill="#b98cff"/>
+        <circle cx="48" cy="132" r="21" fill="#7fd4ff"/>
+        <circle cx="58" cy="162" r="19" fill="#7fe8c8"/>
+        <circle cx="74" cy="186" r="16" fill="#ffd36e"/>
+        <!-- neck + head -->
+        <path d="M78 200 C70 160 70 120 92 92 C108 70 140 64 158 82 C176 100 192 128 190 150 C188 172 168 180 150 172 C136 166 128 170 122 184 L118 200 Z" fill="url(#face)" stroke="#e3d4ff" stroke-width="3"/>
+        <!-- snout -->
+        <ellipse cx="168" cy="152" rx="26" ry="20" fill="#ffe1ef"/>
+        <circle cx="160" cy="150" r="3" fill="#e58ab8"/>
+        <circle cx="176" cy="150" r="3" fill="#e58ab8"/>
+        <path d="M156 162 Q168 170 180 162" fill="none" stroke="#c76aa0" stroke-width="3" stroke-linecap="round"/>
+        <!-- ear -->
+        <path d="M108 86 L100 54 L126 74 Z" fill="#fff" stroke="#e3d4ff" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M108 80 L104 62 L119 74 Z" fill="#ffc4e1"/>
+        <!-- horn -->
+        <path d="M128 76 L150 14 L150 14 L146 82 Z" fill="url(#horn)" stroke="#f2a93b" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M132 66 L147 60 M136 52 L148 47 M140 38 L149 34" stroke="#f2a93b" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- forelock -->
+        <circle cx="116" cy="88" r="13" fill="#ff8cc6"/>
+        <circle cx="100" cy="98" r="12" fill="#b98cff"/>
+        <!-- eye (closed, happy) -->
+        <path d="M128 118 Q138 128 148 118" fill="none" stroke="#4a2d6b" stroke-width="4" stroke-linecap="round"/>
+        <path d="M130 121 L125 127 M138 125 L137 132 M146 121 L151 127" stroke="#4a2d6b" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- cheek -->
+        <ellipse cx="144" cy="138" rx="9" ry="6" fill="#ffb3d6" opacity=".8"/>
+        <!-- sparkles -->
+        <path d="M186 40 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 z" fill="#ffd36e"/>
+        <path d="M30 30 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 z" fill="#ff8cc6"/>
+        <path d="M196 96 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5 z" fill="#7fd4ff"/>
+      </svg>
+
+      <p class="kicker">You're invited to a magical celebration</p>
+      <h1 class="rainbow-text">Akhira</h1>
+      <div class="age"><span>is turning</span><span class="num">5</span></div>
+      <p class="tagline">Come play, giggle and sparkle with us at a unicorn birthday party! 🦄🌈</p>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <section class="details" aria-label="Party details">
+        <div class="row">
+          <div class="icon i-date" aria-hidden="true">📅</div>
+          <div>
+            <div class="label">When</div>
+            <div class="value">Saturday, December 5, 2026</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="icon i-time" aria-hidden="true">⏰</div>
+          <div>
+            <div class="label">Time</div>
+            <div class="value">6:00 PM – 8:00 PM</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="icon i-place" aria-hidden="true">🎠</div>
+          <div>
+            <div class="label">Where</div>
+            <div class="value">Hooray! Kids Indoor Play Center</div>
+            <div class="sub">NewPark Mall, 2086 Newpark Mall Rd, Ste 2109A<br>Newark, CA 94560</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <a class="btn btn-primary" id="gcal" target="_blank" rel="noopener">🗓️ Add to Google Calendar</a>
+        <button class="btn btn-ghost" id="ics" type="button">📲 Apple / Outlook</button>
+        <a class="btn btn-ghost" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=Hooray!+Kids+Indoor+Play+Center+2086+Newpark+Mall+Rd+Newark+CA+94560">📍 Directions</a>
+      </div>
+
+      <h2>How to find us</h2>
+      <section class="directions">
+        <div class="opt recommended">
+          <span class="tag">★ Recommended</span>
+          <h3>Park by AMC &amp; use Entry 5</h3>
+          <p>Park in front of the <strong>AMC theater</strong> and walk in through <strong>Entry 5 (next to AMC)</strong>. It's already on the <strong>second floor</strong> and flat level to the play center — no elevator or escalator needed!</p>
+        </div>
+        <div class="opt">
+          <span class="tag">Option 2</span>
+          <h3>Entry 2 near Jack's Restaurant</h3>
+          <p>Enter NewPark Mall through <strong>Entry 2 (near Jack's restaurant)</strong>, then take the elevator or escalator up to the <strong>second floor</strong> to reach the play center.</p>
+        </div>
+
+        <figure class="map">
+          <a href="https://hoorayplaycenter.com/img/map.jpg" target="_blank" rel="noopener">
+            <img src="https://hoorayplaycenter.com/img/map.jpg" alt="NewPark Mall map showing Entry 5 by AMC and Entry 2 near Jack's restaurant, with the Hooray play center on the second floor" loading="lazy">
+          </a>
+          <figcaption>Tap the map to open it full size.</figcaption>
+        </figure>
+      </section>
+
+      <p class="help">Can't open the entry door? Mall security can help: <a href="tel:+15109315043">510-931-5043</a></p>
+
+      <section class="rsvp" id="rsvp" aria-labelledby="rsvp-title">
+        <div class="big" id="rsvp-title">Please RSVP</div>
+        <p>Let us know if your little one can join the fun!</p>
+
+        <form id="rsvp-form" novalidate>
+          <label class="field">
+            <span>Your name(s)</span>
+            <input name="name" required maxlength="80" autocomplete="name" placeholder="e.g. Maya &amp; family">
+          </label>
+
+          <fieldset class="choice">
+            <legend>Can you come?</legend>
+            <label><input type="radio" name="attending" value="yes" checked><span>🦄 Yes!</span></label>
+            <label><input type="radio" name="attending" value="maybe"><span>🤔 Maybe</span></label>
+            <label><input type="radio" name="attending" value="no"><span>😢 Can't make it</span></label>
+          </fieldset>
+
+          <div class="counts" id="counts">
+            <label class="field">
+              <span>Kids</span>
+              <input name="kids" type="number" min="0" max="20" value="1" inputmode="numeric">
+            </label>
+            <label class="field">
+              <span>Adults</span>
+              <input name="adults" type="number" min="0" max="20" value="1" inputmode="numeric">
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Phone or email <em>(optional)</em></span>
+            <input name="contact" maxlength="120" autocomplete="tel" placeholder="So we can reach you with updates">
+          </label>
+
+          <label class="field">
+            <span>Note <em>(optional)</em></span>
+            <textarea name="note" maxlength="500" rows="2" placeholder="Allergies, siblings, a message for Akhira…"></textarea>
+          </label>
+
+          <!-- honeypot: humans never see or fill this -->
+          <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <button class="btn btn-primary submit" type="submit">✨ Send RSVP</button>
+          <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="thanks" id="thanks" hidden>
+          <div class="big">Thank you! 💖</div>
+          <p id="thanks-text"></p>
+          <button class="btn btn-ghost" type="button" id="again">Change my answer</button>
+        </div>
+      </section>
+    </article>
+
+    <footer>Grip socks recommended for the play area 🧦✨</footer>
+  </main>
+
+<script>
+  // Sparkle sky
+  (function () {
+    var sky = document.getElementById('sky');
+    var glyphs = ['✨', '⭐', '💖', '🌈', '✨', '💜', '⭐', '🦄'];
+    var n = window.innerWidth < 500 ? 14 : 24;
+    for (var i = 0; i < n; i++) {
+      var s = document.createElement('span');
+      s.textContent = glyphs[i % glyphs.length];
+      s.style.left = (Math.random() * 100) + 'vw';
+      s.style.top = (Math.random() * 100) + 'vh';
+      s.style.fontSize = (12 + Math.random() * 16) + 'px';
+      s.style.animationDelay = (-Math.random() * 9) + 's';
+      s.style.animationDuration = (7 + Math.random() * 6) + 's';
+      sky.appendChild(s);
+    }
+  })();
+
+  // Calendar links (6–8pm Pacific, Dec 5 2026 = 02:00–04:00 UTC Dec 6)
+  (function () {
+    var title = "Akhira's 5th Birthday Party 🦄";
+    var where = 'Hooray! Kids Indoor Play Center, NewPark Mall, 2086 Newpark Mall Rd Ste 2109A, Newark, CA 94560';
+    var details = 'Unicorn birthday party! Tip: park in front of AMC and enter through Entry 5 (2nd floor, flat level to the play center). Map: https://hoorayplaycenter.com/img/map.jpg';
+    var start = '20261206T020000Z', end = '20261206T040000Z';
+
+    document.getElementById('gcal').href =
+      'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+      '&text=' + encodeURIComponent(title) +
+      '&dates=' + start + '/' + end +
+      '&location=' + encodeURIComponent(where) +
+      '&details=' + encodeURIComponent(details);
+
+    document.getElementById('ics').addEventListener('click', function () {
+      var esc = function (t) { return t.replace(/([,;\\])/g, '\\$1'); };
+      var ics = [
+        'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Akhira 5th Birthday//EN',
+        'BEGIN:VEVENT',
+        'UID:akhira-5th-birthday-20261205@invite',
+        'DTSTAMP:20261025T000000Z',
+        'DTSTART:' + start, 'DTEND:' + end,
+        'SUMMARY:' + esc(title),
+        'LOCATION:' + esc(where),
+        'DESCRIPTION:' + esc(details),
+        'END:VEVENT', 'END:VCALENDAR'
+      ].join('\r\n');
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+      a.download = 'akhira-5th-birthday.ics';
+      document.body.appendChild(a); a.click(); a.remove();
+    });
+  })();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js"></script>
+<script src="/shared/supabase-config.js"></script>
+<script>
+  // RSVP -> Supabase party_rsvps (insert-only for guests; see supabase/party_rsvps.sql)
+  (function () {
+    var PARTY_SLUG = 'akhira-5th-birthday';
+    var form = document.getElementById('rsvp-form');
+    var msg = document.getElementById('form-msg');
+    var thanks = document.getElementById('thanks');
+    var counts = document.getElementById('counts');
+    var btn = form.querySelector('.submit');
+
+    var cfg = window.PARTY_SUPABASE || {};
+    var db = (window.supabase && cfg.anonKey && !/PASTE_/.test(cfg.anonKey + cfg.url))
+      ? window.supabase.createClient(cfg.url, cfg.anonKey, { auth: { persistSession: false } })
+      : null;
+
+    form.addEventListener('change', function (e) {
+      if (e.target.name === 'attending') counts.hidden = e.target.value === 'no';
+    });
+
+    function clamp(v) { v = parseInt(v, 10); return isNaN(v) ? 0 : Math.max(0, Math.min(20, v)); }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var f = new FormData(form);
+      if (f.get('website')) return; // bot
+      var name = String(f.get('name') || '').trim();
+      if (!name) { msg.textContent = 'Please tell us your name 🦄'; form.elements.namedItem('name').focus(); return; }
+      var attending = f.get('attending');
+      var row = {
+        party_slug: PARTY_SLUG,
+        name: name,
+        attending: attending,
+        kids: attending === 'no' ? 0 : clamp(f.get('kids')),
+        adults: attending === 'no' ? 0 : clamp(f.get('adults')),
+        contact: String(f.get('contact') || '').trim() || null,
+        note: String(f.get('note') || '').trim() || null
+      };
+      if (!db) { msg.textContent = 'RSVP isn’t connected yet — please text the host instead.'; return; }
+
+      btn.disabled = true; msg.textContent = 'Sending…';
+      var res = await db.from('party_rsvps').insert(row);
+      btn.disabled = false;
+      if (res.error) { msg.textContent = 'Oops, that didn’t go through. Please try again.'; return; }
+
+      msg.textContent = '';
+      document.getElementById('thanks-text').textContent =
+        attending === 'yes' ? 'We can’t wait to see you, ' + name + '! 🌈'
+        : attending === 'maybe' ? 'Thanks, ' + name + ' — hope you can make it!'
+        : 'We’ll miss you, ' + name + '. Thanks for letting us know.';
+      form.hidden = true; thanks.hidden = false;
+    });
+
+    document.getElementById('again').addEventListener('click', function () {
+      thanks.hidden = true; form.hidden = false; form.elements.namedItem('name').focus();
+    });
+  })();
+</script>
+</body>
+</html>
