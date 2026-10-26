@@ -80,16 +80,40 @@
   }
   .hero-media { position: relative; width: 100%; max-width: 380px; margin: 0 auto -6px; }
   .hero-art { display: block; width: 100%; height: auto; }
-  /* round portrait sitting inside the rainbow arch */
-  .photo {
-    position: absolute; left: 50%; top: 54%; width: 54%;
-    -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);
-    border-radius: 50%; padding: 5px;
+  /* cut-out portrait in the rainbow arch; tiara pops above the ring */
+  .photo { position: absolute; left: 50%; top: 56%; width: 56%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+  .photo::before { content: ""; display: block; padding-top: 100%; }
+  .disc {
+    position: absolute; inset: 0; border-radius: 50%; padding: 6px;
     background: conic-gradient(from 200deg, #ff8fc4, #ffc861, #7fe6c6, #8fd6ff, #c4a2ff, #ff8fc4);
     box-shadow: 0 12px 28px rgba(154, 92, 255, .35);
   }
-  .photo img { display: block; width: 100%; height: auto; border-radius: 50%; border: 4px solid #fff; background: #f4ecff; }
-  .sticker { position: absolute; left: 66%; top: 52%; width: 22%; height: auto; -webkit-filter: drop-shadow(0 4px 6px rgba(63,33,99,.2)); filter: drop-shadow(0 4px 6px rgba(63,33,99,.2)); animation: bob 5s ease-in-out infinite; }
+  .disc::after {
+    content: ""; position: absolute; inset: 6px; border-radius: 50%; border: 4px solid #fff;
+    background:
+      radial-gradient(2px 2px at 22% 30%, #fff 98%, transparent), radial-gradient(3px 3px at 78% 24%, #fff 98%, transparent),
+      radial-gradient(2px 2px at 70% 70%, #fff 98%, transparent), radial-gradient(3px 3px at 26% 76%, #fff 98%, transparent),
+      radial-gradient(circle at 50% 38%, #fff4fb 0%, #ffd6ec 45%, #dcc8ff 100%);
+  }
+  .photo img {
+    position: absolute; left: 0; top: -12%; width: 100%; height: auto;
+    /* clip the bottom to the inner circle, leave the top open so the tiara pops out */
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='62' r='45'/%3E%3Crect width='100' height='46'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='62' r='45'/%3E%3Crect width='100' height='46'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+    -webkit-filter: drop-shadow(0 4px 6px rgba(63,33,99,.18)); filter: drop-shadow(0 4px 6px rgba(63,33,99,.18));
+  }
+  /* unicorn: bigger, glowing, with sparkles */
+  .uni-glow {
+    position: absolute; left: 67%; top: 51%; width: 34%; padding-top: 34%; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.95) 0%, rgba(255,214,236,.8) 40%, rgba(255,214,236,0) 70%);
+  }
+  .sticker {
+    position: absolute; left: 69%; top: 48%; width: 30%; height: auto;
+    -webkit-filter: drop-shadow(0 0 6px rgba(255,143,196,.9)) drop-shadow(0 6px 8px rgba(63,33,99,.25));
+    filter: drop-shadow(0 0 6px rgba(255,143,196,.9)) drop-shadow(0 6px 8px rgba(63,33,99,.25));
+    animation: bob 4s ease-in-out infinite;
+  }
   @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
   .kicker { margin: 4px 0 0; font-weight: 600; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); }
@@ -272,7 +296,14 @@
         <path d="M322 140 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 z" fill="#8fd6ff"/>
         <path d="M30 150 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 z" fill="#c4a2ff"/>
       </svg>
-        <div class="photo"><img src="/akhira-5th-birthday/akhira.jpg" width="560" height="560" alt="Akhira smiling in a sparkly blue princess dress and tiara" decoding="async" fetchpriority="high"></div>
+        <div class="photo">
+          <div class="disc"></div>
+          <picture>
+            <source srcset="/akhira-5th-birthday/akhira.webp" type="image/webp">
+            <img src="/akhira-5th-birthday/akhira.png" width="560" height="560" alt="Akhira smiling in a sparkly blue princess dress and tiara" decoding="async" fetchpriority="high">
+          </picture>
+        </div>
+        <div class="uni-glow" aria-hidden="true"></div>
         <svg class="sticker" viewBox="28 8 180 205" aria-hidden="true">
           <defs><linearGradient id="horn2" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffb13d"/><stop offset="1" stop-color="#ffeaa6"/></linearGradient><linearGradient id="face2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f4ecff"/></linearGradient></defs>
           <g transform="translate(0 0)">
