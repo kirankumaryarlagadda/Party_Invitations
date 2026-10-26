@@ -217,6 +217,15 @@
   .more a { color: var(--purple); font-weight: 600; }
   .maps { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
+  .waiver-note {
+    display: inline-block; margin-top: 12px; padding: 8px 14px; border-radius: 999px;
+    background: #fff4d6; border: 2px solid #ffd27a; color: #7a4b00; font-size: 14px; font-weight: 600; text-decoration: none;
+  }
+  .waiver .lead b { color: var(--ink); }
+  .thanks-waiver { margin: 0 0 16px; padding: 14px; border-radius: 18px; background: #fff4d6; border: 2px solid #ffd27a; font-size: 15px; line-height: 1.5; }
+  .thanks-waiver[hidden] { display: none; }
+  .thanks-waiver .btn { margin-top: 10px; }
+
   footer { text-align: center; margin: 22px 0 0; font-size: 14px; color: var(--ink-soft); }
 
   /* sticky RSVP bar (phones) */
@@ -323,6 +332,7 @@
         <a id="gcal" href="https://calendar.google.com/" target="_blank" rel="noopener">Google</a> ·
         <a href="/akhira-5th-birthday/akhira-5th-birthday.ics">Apple / Outlook</a>
       </div>
+      <a class="waiver-note" href="#waiver">📝 Waiver required for everyone — please sign before you come</a>
     </section>
 
     <!-- ================= RSVP ================= -->
@@ -375,8 +385,17 @@
       <div class="thanks" id="thanks" hidden>
         <div class="big">Thank you! 💖</div>
         <p id="thanks-text"></p>
+        <p class="thanks-waiver" id="thanks-waiver">One more step: Hooray needs a waiver for everyone coming.<br>
+          <a class="btn btn-primary" href="https://www.hoorayplaycenter.com/online-waiver" target="_blank" rel="noopener">📝 Sign the waiver</a></p>
         <button class="btn btn-ghost" type="button" id="again">Change my answer</button>
       </div>
+    </section>
+
+    <!-- ================= WAIVER ================= -->
+    <section class="card waiver" id="waiver" aria-labelledby="waiver-title">
+      <h2 id="waiver-title">Before you come</h2>
+      <p class="lead">Hooray requires a signed waiver for <b>everyone</b> at the party — kids, adults and babies too. It only takes a minute!</p>
+      <a class="btn btn-primary btn-wide" href="https://www.hoorayplaycenter.com/online-waiver" target="_blank" rel="noopener">📝 Sign the Hooray waiver</a>
     </section>
 
     <!-- ================= WHERE ================= -->
@@ -433,7 +452,7 @@
   (function () {
     var title = "Akhira's 5th Birthday Party 🦄";
     var where = 'Hooray! Kids Indoor Play Center, 2086 Newpark Mall Rd Ste 2109A, Newark, CA 94560';
-    var details = 'Unicorn birthday party! Park in front of AMC and enter through Entry 5 (2nd floor, flat level to the play center). RSVP: https://yarlagadda-invites.vercel.app/akhira-5th-birthday/';
+    var details = 'Unicorn birthday party! Park in front of AMC and enter through Entry 5 (2nd floor, flat level to the play center). Everyone (kids, adults, babies) needs the Hooray waiver: https://www.hoorayplaycenter.com/online-waiver RSVP: https://yarlagadda-invites.vercel.app/akhira-5th-birthday/';
     document.getElementById('gcal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
       '&text=' + encodeURIComponent(title) + '&dates=20261206T020000Z/20261206T040000Z' +
       '&location=' + encodeURIComponent(where) + '&details=' + encodeURIComponent(details);
@@ -514,6 +533,7 @@
           attending === 'yes' ? 'We can’t wait to see you, ' + name + '! 🌈'
           : attending === 'maybe' ? 'Thanks, ' + name + ' — hope you can make it!'
           : 'We’ll miss you, ' + name + '. Thanks for letting us know.';
+        document.getElementById('thanks-waiver').hidden = attending === 'no';
         form.hidden = true; thanks.hidden = false;
         thanks.scrollIntoView({ block: 'center' });
       }, function () {
